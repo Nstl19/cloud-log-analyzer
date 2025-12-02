@@ -1,0 +1,38 @@
+# OS / Editor Junk
+.DS_Store
+Thumbs.db
+*.log
+
+# VSCode
+.vscode/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node / JS Cache
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Terraform
+backend/infra/.terraform/
+backend/infra/.terraform.lock.hcl
+backend/infra/terraform.tfstate
+backend/infra/terraform.tfstate.backup
+
+
+*.tfstate.*
+crash.log
+
+# Lambda Deployment ZIPs
+backend/generator/deployment.zip
+backend/lambda/parser/deployment.zip
+backend/lambda/fetchlogs/deployment.zip
+backend/lambda/cleanup/deployment.zip
+
+# Build / Bundle Artifacts
+dist/
+build/

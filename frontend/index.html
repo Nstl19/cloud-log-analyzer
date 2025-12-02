@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/png" href="favicon.png?v=2">
+  <title>Cloud Log Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+  <!-- Background image container -->
+  <div class="bg-wrap">
+    <img src="bg.jpg" alt="background" class="bg-img" />
+    <div class="bg-tint"></div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader" class="loader-root">
+    <div class="loader-card">
+      <div class="logo">LogSens</div>
+
+      <div class="loader-bar">
+        <div class="bar-fill"></div>
+      </div>
+
+      <div class="loader-sub">Preparing dashboard…</div>
+    </div>
+  </div>
+
+  <!-- App -->
+  <main id="app" class="hidden">
+    <nav class="topbar">
+      <div class="title">LogSens</div>
+      <div class="subtitle">A Cloud Log Analyzer</div>
+      <div class="meta" id="last-updated">Last updated —</div>
+    </nav>
+
+    <section class="container">
+      
+      <!-- Stat Cards -->
+      <div class="cards-row">
+        <div class="card glass stat info" id="info-card">
+          <div class="stat-num" id="info-count">0</div>
+          <div class="stat-label">INFO</div>
+        </div>
+
+        <div class="card glass stat warn" id="warn-card">
+          <div class="stat-num" id="warn-count">0</div>
+          <div class="stat-label">WARN</div>
+        </div>
+
+        <div class="card glass stat error" id="error-card">
+          <div class="stat-num" id="error-count">0</div>
+          <div class="stat-label">ERROR</div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <button id="refreshBtn" class="btn glass">Refresh ↻</button>
+      </div>
+
+      <!-- Grouped Logs -->
+      <div class="table-wrap glass">
+        <div id="logs-container"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const API_URL = "https://pr7r0we6gl.execute-api.ap-south-1.amazonaws.com/logs";
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
