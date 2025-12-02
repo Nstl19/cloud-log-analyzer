@@ -7,7 +7,6 @@ resource "aws_lambda_function" "parser_lambda" {
   filename         = "${path.module}/../lambda/parser/deployment.zip"
   source_code_hash = filebase64sha256("${path.module}/../lambda/parser/deployment.zip")
 
-  # REQUIRED ENV VARIABLE
   environment {
     variables = {
       BUCKET_NAME = aws_s3_bucket.log_bucket.bucket
@@ -15,7 +14,7 @@ resource "aws_lambda_function" "parser_lambda" {
   }
 }
 
-# IAM ALLOW S3 READ ACCESS
+# IAM Allow S3 Read Access
 resource "aws_iam_role_policy" "parser_s3_read" {
   name = "parser-s3-read"
   role = aws_iam_role.lambda_role.id
@@ -38,7 +37,7 @@ resource "aws_iam_role_policy" "parser_s3_read" {
   })
 }
 
-# ALLOW S3 TO INVOKE PARSER LAMBDA
+# Allow S3 to invoke Parser Lambda
 resource "aws_lambda_permission" "allow_s3_invoke" {
   statement_id  = "AllowS3Invoke"
   action        = "lambda:InvokeFunction"
@@ -47,7 +46,7 @@ resource "aws_lambda_permission" "allow_s3_invoke" {
   source_arn    = aws_s3_bucket.log_bucket.arn
 }
 
-# S3 → LAMBDA NOTIFICATION TRIGGER
+# S3 - Lambda Notification Trigger
 resource "aws_s3_bucket_notification" "log_bucket_notify" {
   bucket = aws_s3_bucket.log_bucket.id
 

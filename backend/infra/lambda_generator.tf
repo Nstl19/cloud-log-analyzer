@@ -1,6 +1,5 @@
-# -------------------------
 # Lambda: Auto Log Generator
-# -------------------------
+
 resource "aws_lambda_function" "log_generator" {
   function_name = "cla_log_generator"
   handler       = "handler.handler"
@@ -17,13 +16,14 @@ resource "aws_lambda_function" "log_generator" {
   }
 }
 
-# -------------------------
-# EventBridge rule (runs every 1 minute)
-# -------------------------
+
+# EventBridge rule
+
 resource "aws_cloudwatch_event_rule" "log_schedule" {
   name                = "log-generator-schedule"
   schedule_expression = "rate(1 minute)"
 }
+
 
 # Connect schedule to lambda
 resource "aws_cloudwatch_event_target" "log_schedule_target" {
@@ -32,7 +32,8 @@ resource "aws_cloudwatch_event_target" "log_schedule_target" {
   arn       = aws_lambda_function.log_generator.arn
 }
 
-# Allow EventBridge to invoke Lambda 
+
+# Allow EventBridge to invoke Lambda
 resource "aws_lambda_permission" "allow_event_schedule" {
   statement_id  = "AllowExecutionFromEventBridge"
   action        = "lambda:InvokeFunction"
@@ -41,9 +42,9 @@ resource "aws_lambda_permission" "allow_event_schedule" {
   source_arn    = aws_cloudwatch_event_rule.log_schedule.arn
 }
 
-# -------------------------
+
 # IAM Policy - S3 Write Access
-# -------------------------
+
 resource "aws_iam_role_policy" "lambda_s3_write" {
   name = "lambda_s3_write_access"
   role = aws_iam_role.lambda_role.id
