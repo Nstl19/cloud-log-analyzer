@@ -16,7 +16,7 @@ The Cloud Log Analyzer is built entirely on **AWS Serverless services**, utilizi
 
 ### Structure
 
-
+<img src="<img width="1632" height="640" alt="CLA_Structure" src="https://github.com/user-attachments/assets/9c4330bc-5187-4e5c-b70a-7fb680db66bf" />
 
 ### High-Level Flow
 
