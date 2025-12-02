@@ -1,4 +1,4 @@
-# LogSense - A Cloud Log Analyzer 
+# LogSens - A Cloud Log Analyzer 
 
 A fully-serverless, real-time log ingestion and visualization system built on AWS. CLA provides a fast, interactive dashboard for monitoring automatically generated application logs, ensuring cost-efficiency and zero operational overhead.
 
