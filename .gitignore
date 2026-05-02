@@ -26,6 +26,7 @@ backend/infra/terraform.tfstate.backup
 
 *.tfstate.*
 crash.log
+*.tfplan
 
 # Lambda Deployment ZIPs
 backend/generator/deployment.zip
@@ -36,3 +37,13 @@ backend/lambda/cleanup/deployment.zip
 # Build / Bundle Artifacts
 dist/
 build/
+
+#environment files
+.env
+.env.*
+
+#PFM keys
+*.pem
+
+# Docker artifacts
+.docker/
