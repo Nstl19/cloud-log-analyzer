@@ -92,3 +92,13 @@ The system is designed to efficiently generate, process, and visualize applicati
 - Explore auto-scaling strategies for handling higher workloads  
 
 ---
+
+## Contribution 
+
+Feel free to open an issue or submit a pull request if you have any suggestions or bug fixes! 
+
+--- 
+
+## License 
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
